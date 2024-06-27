@@ -3,36 +3,25 @@
   <h2>About Me</h2>
 
   <h3>Education</h3>
+  {% for edu in education %}
   <p>
-    <a href="https://uwaterloo.ca/future-students/programs/software-engineering" target="_blank"
-      >Software Engineering</a
-    >
-    @ <a href="https://uwaterloo.ca/" target="_blank">University of Waterloo</a>.
+    <a href="{{ edu.link }}" target="_blank">{{ edu.program }}</a> @
+    <a href="{{ edu.school_link }}" target="_blank">{{ edu.school }}</a>
   </p>
+  {% endfor %}
 
   <h3>Work Experience</h3>
   <ul>
-    <li><a href="https://www.okta.com/" target="_blank">Okta</a>,</li>
-    <li><a href="https://www.thescore.bet/" target="_blank">theScore Bet</a>,</li>
-    <li><a href="https://dandelionnet.io/" target="_blank">Dandelion</a></li>
-    <li><a href="https://postalgia.ink/" target="_blank">Postalgia</a>.</li>
+    {% for work in work_experience %}
+    <li><a href="{{ work.link }}" target="_blank">{{ work.company }}</a></li>
+    {% endfor %}
   </ul>
 
   <h3>Places I've Traveled To</h3>
   <ul>
-    <li>Banff, Canada</li>
-    <li>Vancouver, Canada</li>
-    <li>Toronto, Canada</li>
-    <li>Victoria, Canada</li>
-    <li>Whistler, Canada</li>
-    <li>Vadodara, India</li>
-    <li>San Francisco, USA</li>
-    <li>Miami, USA</li>
-    <li>Las Vegas, USA</li>
-    <li>Washington, USA</li>
-    <li>Philadelphia, USA</li>
-    <li>New York, USA</li>
-    <li>Cancun, Mexico</li>
+    {% for place in places_traveled %}
+    <li>{{ place }}</li>
+    {% endfor %}
   </ul>
 </section>
 {% endblock %}
