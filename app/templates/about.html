@@ -17,11 +17,7 @@
     {% endfor %}
   </ul>
 
-  <h3>Places I've Traveled To</h3>
-  <ul>
-    {% for place in places_traveled %}
-    <li>{{ place }}</li>
-    {% endfor %}
-  </ul>
+  <!-- Display the folium map -->
+  <div id="map">{{ map_html|safe }}</div>
 </section>
 {% endblock %}
