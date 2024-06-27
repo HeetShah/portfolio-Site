@@ -35,11 +35,13 @@
       </div>
     </header>
 
+    {% extends 'base.html' %} {% block content %}
     <div class="profile">
       <div id="profile-picture" class="profile-picture">
-        <img src="./static/img/pfp.jpeg" />
+        <img src="{{ url_for('static', filename='img/pfp.jpeg') }}" alt="Profile Picture" />
       </div>
       <h1>{{ title }}</h1>
     </div>
+    {% endblock %}
   </body>
 </html>
