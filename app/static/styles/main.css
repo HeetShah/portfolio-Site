@@ -146,10 +146,24 @@ nav ul li a {
     margin-top: 20px; /* Adds space above the header */
 }
 
-.about p {
-    color: #666; /* Darker text for readability */
-    font-size: 18px; /* Adjust size as needed */
+.about h3 {
+    color: #333; /* Adjusts the color to make headers stand out */
+    margin-top: 20px; /* Adds space above the header */
+    margin-bottom: 10px; /* Adds space below the header */
 }
+
+.about p, .about li {
+    padding-left: 20px; /* Adds indentation to paragraphs and list items */
+    text-indent: 0; /* Overrides the default text indent if any */
+    color: #666; /* Ensures text is readable on different backgrounds */
+    font-size: 16px; /* Sets a specific font size */
+}
+
+.about li {
+    list-style-type: disc; /* Adds bullet points to list items */
+    margin-bottom: 5px; /* Adds space between list items */
+}
+
 
 .about {
     padding-top: 60px; /* Adjust this value based on the actual height of your navbar */
