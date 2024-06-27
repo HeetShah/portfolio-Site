@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags and other head elements -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <header class="nav-bar">
+      <div class="nav-content">
+        <a href="/">
+          <div class="nav-logo">
+            <img src="{{ url_for('static', filename='img/logo.svg') }}" />
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/hobbies">Hobbies</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content, to be filled by child templates -->
+    {% block content %}{% endblock %}
+  </body>
+</html>
