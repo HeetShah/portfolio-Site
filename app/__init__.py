@@ -92,7 +92,7 @@ def hobbies():
             },
             {
                 "title": "Photography 📸",
-                "description": "Natural tourist. I just use my phone and struggling to afford cloud storage. Please help, thanks."
+                "description": "Natural tourist. I just use my phone and struggling to afford cloud storage. Please help, thanks :)"
             },
             {
                 "title": "Reading 📚",
