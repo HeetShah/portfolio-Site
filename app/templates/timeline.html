@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block content %}
+<section class="timeline">
+  <h2>Timeline</h2>
+  <form id="postForm">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="content" placeholder="Your Post Content" required></textarea>
+    <button type="submit">Post</button>
+  </form>
+
+  <div id="postsContainer"></div>
+</section>
+
+<script>
+  document.getElementById("postForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+
+    fetch("/api/timeline_post", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        loadPosts();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
+  function loadPosts() {
+    fetch("/api/timeline_post")
+      .then((response) => response.json())
+      .then((data) => {
+        const postsContainer = document.getElementById("postsContainer");
+        postsContainer.innerHTML = "";
+        data.timeline_posts.forEach((post) => {
+          const postElement = document.createElement("div");
+          postElement.innerHTML = `
+                <h3>${post.name}</h3>
+                <p>${post.content}</p>
+                <small>Posted on: ${new Date(post.created_at).toLocaleString()}</small>
+            `;
+          postsContainer.appendChild(postElement);
+        });
+      });
+  }
+
+  loadPosts();
+</script>
+{% endblock %}

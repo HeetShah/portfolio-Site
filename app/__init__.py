@@ -5,10 +5,11 @@ import folium
 from peewee import *
 import datetime
 from playhouse.shortcuts import model_to_dict
-
+from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 
 mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"), user=os.getenv("MYSQL_USER"), password=os.getenv("MYSQL_PASSWORD"), host=os.getenv("MYSQL_HOST"), port=3306)
 
@@ -166,3 +167,7 @@ def hobbies():
         ]
     }
     return render_template('hobbies.html', title="My Hobbies", hobbies_info=hobbies_info)
+
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title="Timeline")

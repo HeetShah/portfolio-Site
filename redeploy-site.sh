@@ -1,4 +1,9 @@
 #!/bin/bash
+# This script is used to redeploy the Flask application. Here is what it does:
+# 1. Fetches the latest changes from the main branch of the repository.
+# 2. Resets the local repository to match the main branch.
+# 3. Installs the required dependencies.
+# 4. Starts the Flask application in a tmux session.
 
 PROJECT_DIR="/root/portfolio-Site"
 VENV_PATH="$PROJECT_DIR/python3-virtualenv"

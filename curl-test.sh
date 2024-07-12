@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# This script is used to test the Flask API by creating a timeline post, fetching all posts, and deleting the created post.
+# Here is what it does:
+# 1. Creates a timeline post with test data.
+# 2. Fetches all posts to verify the creation.
+# 3. Deletes the created post to clean up.
+
 # Set API URL and test data
 API_URL="http://localhost:5000/api/timeline_post"
 NAME="TestUser$(date +%s)"
