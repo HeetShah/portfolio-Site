@@ -1,18 +1,23 @@
 #!/bin/bash
-# This script is used to redeploy the Flask application. Here is what it does:
-# 1. Fetches the latest changes from the main branch of the repository.
-# 2. Resets the local repository to match the main branch.
-# 3. Installs the required dependencies.
-# 4. Starts the Flask application in a tmux session.
+# This script is used to redeploy the Flask application using systemd. Here is what it does:
+# 1. Navigate to the project directory.
+# 2. Fetch the latest changes from the main branch of the GitHub repository.
+# 3. Reset the local repository to match the main branch.
+# 4. Install the required Python dependencies.
+# 5. Restart the 'myportfolio' service to apply the changes.
 
 PROJECT_DIR="/root/portfolio-Site"
 VENV_PATH="$PROJECT_DIR/python3-virtualenv"
-tmux kill-server
 
+# Navigate to the project directory
 cd "$PROJECT_DIR"
+
+# Fetch and reset to the latest changes from GitHub
 git fetch && git reset --hard origin/main
 
+# Activate virtual environment and install dependencies
 source "$VENV_PATH/bin/activate"
 pip install -r requirements.txt
 
-tmux new-session -d -s flask_session "cd $PROJECT_DIR && source $VENV_PATH/bin/activate && flask run --host=0.0.0.0"
+# Restart the 'myportfolio' service to apply new changes
+sudo systemctl restart myportfolio.service
