@@ -1,4 +1,5 @@
 import os
+import re
 from flask import Flask, render_template, request, Markup
 from dotenv import load_dotenv
 import folium
@@ -33,6 +34,13 @@ mydb.create_tables([TimelinePost])
  
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
+    if 'name' not in request.form or not request.form['name']:
+        return "Invalid name", 400
+    if ('email' not in request.form or 
+        not re.search(r"[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}", request.form['email'])):
+        return "Invalid email", 400
+    if 'content' not in request.form or not request.form['content']:
+        return "Invalid content", 400
     name = request.form['name']
     email = request.form['email']
     content = request.form['content']
