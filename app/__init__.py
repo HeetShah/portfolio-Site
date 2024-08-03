@@ -144,6 +144,7 @@ def hobbies():
                     "Among Us - I'm always sus.",
                     "Rocket League - Just play FIFA...",
                     "Fortnite - I'm a bot."
+                    "GTA V - Can we just get GTA VI already?"
                 ]
             },
             {
