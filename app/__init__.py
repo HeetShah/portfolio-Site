@@ -143,7 +143,7 @@ def hobbies():
                     "Chess - Probably grandmaster in my past life.",
                     "Among Us - I'm always sus.",
                     "Rocket League - Just play FIFA...",
-                    "Fortnite - I'm a bot."
+                    "Fortnite - I'm a bot.",
                     "GTA V - Can we just get GTA VI already?"
                 ]
             },
